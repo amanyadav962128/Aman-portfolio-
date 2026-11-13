@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio of Alex Morgan, a designer and developer.">
+  <title>AMAN YADAV| Portfolio</title>
+
+  <style>
+    :root {
+      --background: #0b1020;
+      --surface: #111a2e;
+      --surface-light: #18233b;
+      --text: #f4f7fb;
+      --muted: #a7b2c5;
+      --accent: #66e3c4;
+      --border: rgba(255, 255, 255, 0.1);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 16, 32, 0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      align-items: center;
+      gap: 50px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 1.04;
+      margin: 16px 0 22px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero p,
+    .section-intro {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #08121a;
+    }
+
+    .button.secondary {
+      color: var(--accent);
+    }
+
+    .profile-card {
+      min-height: 320px;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(102, 227, 196, 0.25), transparent 45%),
+        var(--surface);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 170px;
+      height: 170px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--surface-light);
+      color: var(--accent);
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 82px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 10px;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .skill {
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .project-image {
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1c3850, #18342e);
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content p {
+      margin: 9px 0 16px;
+      color: var(--muted);
+    }
+
+    .project-link {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 14px;
+    }
+
+    .contact-list li {
+      margin: 12px 0;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 760px) {
+      .navbar {
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 0;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home">AMAN<span>.</span></a>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <p class="eyebrow">Designer · Developer · Problem Solver</p>
+        <h1>HellO   I am AMAN <br><span>I build useful things.</span></h1>
+        <p>
+          I create thoughtful digital experiences that help people and businesses
+          get things done. I care about clear design, accessible websites, and
+          reliable code.
+        </p>
+
+        <div class="button-row">
+          <a class="button primary" href="#projects">See my work</a>
+          <a class="button secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="profile-card" aria-label="Profile placeholder">
+        <div class="avatar">AM</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">A little about me</p>
+          <h2>About</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>My approach</h3>
+            <p>
+              I bring ideas from first sketch to finished product. I enjoy
+              understanding the problem, making the experience simple, and
+              building a solution that works well on every screen.
+            </p>
+          </article>
+
+          <article class="card" id="skills">
+            <h3>Skills</h3>
+            <p>Tools and technologies I use in my work:</p>
+            <div class="skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Responsive Design</span>
+              <span class="skill">UI/UX</span>
+              <span class="skill">Git</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected work</p>
+          <h2>Projects</h2>
+          <p class="section-intro">
+            A few examples of projects I’ve worked on. Replace these with your
+            own work and project links.
+          </p>
+        </div>
+
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-image">Project One</div>
+            <div class="project-content">
+              <h3>Business Website</h3>
+              <p>
+                A clear, responsive website designed to help a small business
+                introduce its services and reach new customers.
+              </p>
+              <a class="project-link" href="#contact">View project →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">Project Two</div>
+            <div class="project-content">
+              <h3>Task Manager App</h3>
+              <p>
+                A simple task management interface that helps users organize
+                projects and keep track of their priorities.
+              </p>
+              <a class="project-link" href="#contact">View project →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">Project Three</div>
+            <div class="project-content">
+              <h3>Online Store</h3>
+              <p>
+                A product browsing experience with a clean layout and a
+                straightforward path from discovery to purchase.
+              </p>
+              <a class="project-link" href="#contact">View project →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Let’s talk</p>
+          <h2>Contact</h2>
+        </div>
+
+        <div class="contact-grid">
+          <article class="card">
+            <h3>Have a project in mind?</h3>
+            <p>
+              I’m open to new opportunities and collaborations. Send me a
+              message and I’ll get back to you.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Contact details</h3>
+            <ul class="contact-list">
+              <li>Email: <a href="aman.yadav.96212@gmail.com">aman.yadav.96212@gmail.com</a></li>
+              <li>LinkedIn: <a href="Aman Yadav "></a>Aman Yadav</li>
+              <li>GitHub: <a href="amanyadav962128">amanyadav962128</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Aman. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
